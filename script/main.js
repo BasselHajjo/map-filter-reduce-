@@ -33,35 +33,17 @@ function moviesRatings(movies){
     
     goodMovies.addEventListener("click",function(){
         resultHolder.innerHTML = "";
-       const result = movies.filter((x) => {
-           return x.rating >= 7;
-       }).map((z)=>{
-           const movie = document.createElement("li");
-           resultHolder.appendChild(movie);
-           movie.innerHTML = z.title + '<h6>' + " " + "(Good movie)" + '</h6>';
-        });
+       resultRatingMovies(movies,7,10);
     });
     
     averageMovies.addEventListener("click",function(){
         resultHolder.innerHTML = "";
-       const result = movies.filter((x) => {
-           return x.rating >= 4 && x.rating <= 6;
-       }).map((z)=>{
-           const movie = document.createElement("li");
-           resultHolder.appendChild(movie);
-           movie.innerHTML = z.title + '<h6>' + " " + "(Average movie)" + '</h6>';
-        });
+       resultRatingMovies(movies,4,6);
     });
     
     badMovies.addEventListener("click",function(){
         resultHolder.innerHTML = "";
-       const result = movies.filter((x) => {
-           return x.rating <= 3;
-       }).map((z)=>{
-           const movie = document.createElement("li");
-           resultHolder.appendChild(movie);
-           movie.innerHTML = z.title + '<h6>' + " " + "(Bad movie)" + '</h6>';
-        });
+       resultRatingMovies(movies,0,3);
     });
     
 /*Calculate the average rating of all the movies*/
@@ -97,3 +79,15 @@ function moviesRatings(movies){
 };
 
 fetchJsonData(moviesLink,moviesRatings);
+
+
+
+function resultRatingMovies(jsonFile,a,b){
+    const result = jsonFile.filter((x) => {
+           return x.rating >= a && x.rating <=b;
+       }).map((z)=>{
+           const movie = document.createElement("li");
+           resultHolder.appendChild(movie);
+           movie.innerHTML = z.title;
+        });
+};
