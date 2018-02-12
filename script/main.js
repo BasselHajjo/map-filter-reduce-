@@ -63,6 +63,37 @@ function moviesRatings(movies){
            movie.innerHTML = z.title + '<h6>' + " " + "(Bad movie)" + '</h6>';
         });
     });
+    
+/*Calculate the average rating of all the movies*/
+        
+        totalAverage.addEventListener("click",function(){
+        resultHolder.innerHTML = "";
+        let rating = 0;
+        let result = movies.map((x) => {
+           rating += x.rating / movies.length;
+        })
+        const totalReating = document.createElement("h3");
+       resultHolder.appendChild(totalReating);
+       totalReating.innerHTML = "The total movies average is " + rating.toFixed(2);
+    });
+    
+/*Count the total number of Good, Average and Bad movies.*/
+    
+    
+    
+/*Count he number of movies containing the following keywords: ["The", "dog", "who", "is", "not", "a", "man"].*/
+    
+    
+    
+/*Can you make sure the search is case insensitive?*/
+    
+    
+    
+/*Count the number of movies made between 1980-1989 (including both the years).*/
+    
+    
+    
+    
 };
 
 fetchJsonData(moviesLink,moviesRatings);
