@@ -16,11 +16,22 @@ header {
     float: left;
     margin-right: 20px; }
 
-h6{
-    display: inline-block;
-}
+div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; }
+
+button {
+  align-items: center;
+  padding: 5px;
+  margin: 5px;
+  background: #dedede;
+  font-weight: bold;
+  border: solid 2px red;
+  border-radius: 5px;
+  cursor: pointer;
+  transition-duration: 0.4s; }
+  button:hover {
+    background-color: red;
+    color: white; }
 
 /*# sourceMappingURL=styles.css.map */
-
-
-
