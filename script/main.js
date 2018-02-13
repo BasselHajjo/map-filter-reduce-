@@ -97,6 +97,20 @@ function moviesRatings(movies){
         
 /*Count he number of movies containing the following keywords: ["The", "dog", "who", "is", "not", "a", "man"].*/
     
+    specialMovies.addEventListener('click',function(){
+        resultHolder.innerHTML = "";
+        const keyWords = ["The", "dog", "who", "is", "not", "a", "man"];
+        let result = movies.map((x) => {
+            for(let i = 0; i<keyWords.length;i++){
+                if(keyWords[i] === x.title){
+                }
+            }
+        });
+        const containing = document.createElement("h3");
+        resultHolder.appendChild(containing);
+        containing.innerHTML = "The number of movies containe the givin words is: " + result.length;
+    });
+    
     
     
 /*Can you make sure the search is case insensitive?*/
