@@ -61,8 +61,40 @@ function moviesRatings(movies){
     
 /*Count the total number of Good, Average and Bad movies.*/
     
+    goodMoviesCount.addEventListener("click",function(){
+        resultHolder.innerHTML = "";
+        let goodMoviesCountValue = 0;
+        let result = movies.reduce((x,y) => {
+            return goodMoviesCountValue = x + (y.rating >= 7);        
+        },0);
+            const goodResult = document.createElement("li");
+            resultHolder.appendChild(goodResult);
+            goodResult.innerHTML = "The good movies count is: " + goodMoviesCountValue;
+        });
     
+    averageMoviesCount.addEventListener('click',function(){
+        resultHolder.innerHTML = "";
+        let averageMoviesCountValue = 0;
+        let badMoviesCountValue = 0;
+        let result = movies.reduce((x,y) => {
+           return averageMoviesCountValue = x + (y.rating >= 4 && y.rating <7);
+        },0);
+        const averageResult = document.createElement("li");
+        resultHolder.appendChild(averageResult);
+        averageResult.innerHTML = "The average movies count is: " + averageMoviesCountValue;
+    });
     
+    badMoviesCount.addEventListener('click',function(){
+        resultHolder.innerHTML = "";
+        let badMoviesCountValue = 0;
+        let result = movies.reduce((x,y) => {
+            return badMoviesCountValue = x + (y.rating < 4);
+        },0);
+        const badResult = document.createElement("li");
+        resultHolder.appendChild(badResult);
+        badResult.innerHTML = "The bad movies count is: " + badMoviesCountValue;
+    });
+        
 /*Count he number of movies containing the following keywords: ["The", "dog", "who", "is", "not", "a", "man"].*/
     
     
