@@ -64,10 +64,10 @@ function moviesRatings(movies){
     goodMoviesCount.addEventListener("click",function(){
         resultHolder.innerHTML = "";
         let goodMoviesCountValue = 0;
-        let result = movies.reduce((x,y) => {
+        movies.reduce((x,y) => {
             return goodMoviesCountValue = x + (y.rating >= 7);        
         },0);
-            const goodResult = document.createElement("li");
+            const goodResult = document.createElement("h3");
             resultHolder.appendChild(goodResult);
             goodResult.innerHTML = "The good movies count is: " + goodMoviesCountValue;
         });
@@ -76,10 +76,10 @@ function moviesRatings(movies){
         resultHolder.innerHTML = "";
         let averageMoviesCountValue = 0;
         let badMoviesCountValue = 0;
-        let result = movies.reduce((x,y) => {
+        movies.reduce((x,y) => {
            return averageMoviesCountValue = x + (y.rating >= 4 && y.rating <7);
         },0);
-        const averageResult = document.createElement("li");
+        const averageResult = document.createElement("h3");
         resultHolder.appendChild(averageResult);
         averageResult.innerHTML = "The average movies count is: " + averageMoviesCountValue;
     });
@@ -87,10 +87,10 @@ function moviesRatings(movies){
     badMoviesCount.addEventListener('click',function(){
         resultHolder.innerHTML = "";
         let badMoviesCountValue = 0;
-        let result = movies.reduce((x,y) => {
+        movies.reduce((x,y) => {
             return badMoviesCountValue = x + (y.rating < 4);
         },0);
-        const badResult = document.createElement("li");
+        const badResult = document.createElement("h3");
         resultHolder.appendChild(badResult);
         badResult.innerHTML = "The bad movies count is: " + badMoviesCountValue;
     });
@@ -105,7 +105,16 @@ function moviesRatings(movies){
     
 /*Count the number of movies made between 1980-1989 (including both the years).*/
     
-    
+    oldMovies.addEventListener('click',function(){
+        resultHolder.innerHTML="";
+        let oldMoviesCount = 0;
+        movies.reduce((x,y) => {
+            return oldMoviesCount = x + (y.year >= 1980 && y.year <= 1989);
+        },0);
+        const oldMovie = document.createElement("h3");
+        resultHolder.appendChild(oldMovie);
+        oldMovie.innerHTML = "The number of movies that was made between 1980 & 1989 is: " + oldMoviesCount;
+    })
     
     
 };
