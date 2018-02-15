@@ -99,16 +99,15 @@ function moviesRatings(movies){
     
     specialMovies.addEventListener('click',function(){
         resultHolder.innerHTML = "";
-        const keyWords = ["The", "dog", "who", "is", "not", "a", "man"];
-        let result = movies.map((x) => {
-            for(let i = 0; i<keyWords.length;i++){
-                if(keyWords[i] === x.title){
-                }
-            }
+        let keyWords = ["The", "dog", "who", "is", "not", "a", "man"];
+        const searching = movies.filter((movieTitle)=>{
+            const moviesTitle = movieTitle.title.split(/[^\w]/);
+            return keyWords.some(keyWord => moviesTitle.includes(keyWord));
         });
-        const containing = document.createElement("h3");
-        resultHolder.appendChild(containing);
-        containing.innerHTML = "The number of movies containe the givin words is: " + result.length;
+        const specialMoviesCount = document.createElement("h3");
+        resultHolder.appendChild(specialMoviesCount);
+        specialMoviesCount.innerHTML = "The search results is: " + searching.length;
+        
     });
     
     
